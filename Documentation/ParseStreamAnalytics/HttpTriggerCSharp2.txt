@@ -1,0 +1,10 @@
+#r "Newtonsoft.Json"
+
+using System;
+using Newtonsoft.Json;
+
+public static void Run(string mySbMsg, TraceWriter log, out string notification)
+{
+     log.Info($"C# Queue trigger function processed: {mySbMsg}");
+     notification = "{\"data\": {\"message\": \"" + mySbMsg + "\" }}";
+}

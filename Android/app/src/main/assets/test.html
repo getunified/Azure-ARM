@@ -1,0 +1,18 @@
+<div id="divView">
+    <iframe id="ifrTile" width="100%" height="600"></iframe>
+</div>
+<script>
+  (function () {
+      var iframe = document.getElementById('ifrTile');
+      iframe.src='<Embed Url here>';
+      iframe.onload = function() {
+        var msgJson = {
+          action: "loadReport",
+          accessToken: "<Access token here>"
+        };
+        var msgTxt = JSON.stringify(msgJson);
+        iframe.contentWindow.postMessage(msgTxt, "*");
+      };
+  }());
+
+</script>

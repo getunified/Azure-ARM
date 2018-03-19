@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1038729360764",
+    "firebase_url": "https://getunified-ef636.firebaseio.com",
+    "project_id": "getunified-ef636",
+    "storage_bucket": "getunified-ef636.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038729360764:android:351fd6d12a2fbd8a",
+        "android_client_info": {
+          "package_name": "nz.co.getunified.getunified"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038729360764-p24iemn83mib2n5jau6sibfr6s5pi5c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDfZk45aArZG-TwR6V46yJhVXi937YFYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

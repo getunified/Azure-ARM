@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_title">24sp</dimen>
+    <dimen name="font_display">14sp</dimen>
+    <dimen name="font_detail">16sp</dimen>
+    <dimen name="font_value_l">36sp</dimen>
+    <dimen name="font_home_name">22sp</dimen>
+    <dimen name="font_home_value">20sp</dimen>
+    <dimen name="font_login">18sp</dimen>
+    <dimen name="font_shopping_sum">30sp</dimen>
+    <dimen name="font_shopping_count">16sp</dimen>
+    <dimen name="font_shopping_checkout">14sp</dimen>
+    <dimen name="font_payresult">24sp</dimen>
+
+</resources>

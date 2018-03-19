@@ -1,0 +1,24 @@
+#r "Newtonsoft.Json"
+
+using System;
+using System.Net;
+using Newtonsoft.Json;
+
+public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
+{
+    log.Verbose($"Webhook was triggered!");
+    string jsonContent = await req.Content.ReadAsStringAsync();
+    log.Verbose($"json content: {jsonContent}");
+    dynamic data = JsonConvert.DeserializeObject(jsonContent);
+
+    string msgBody = data.body;
+    log.Verbose($"Message Received: {msgBody}");
+    int length = msgBody.Length;
+    log.Verbose($"Message Length: {length.ToString()}");
+    int start = msgBody.IndexOf("{");
+    int end = msgBody.LastIndexOf("}");
+    string result = msgBody.Substring(start, end - start + 1);
+    log.Verbose($"Result: {result}");
+
+    return req.CreateResponse(HttpStatusCode.OK, JsonConvert.DeserializeObject(result));
+}

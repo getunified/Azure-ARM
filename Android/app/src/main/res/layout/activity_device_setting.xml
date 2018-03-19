@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nz.co.getunified.getunified.Device.DeviceSettingActivity">
+
+    <RelativeLayout
+        android:id="@+id/decice_top"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/device_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/background"
+            android:gravity="center"
+            android:text="@string/device_setting_title"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/font_title" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:onClick="onClick"
+            android:src="@drawable/back" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/device_setting_name_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Device Name: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decice_top" />
+
+    <EditText
+        android:id="@+id/device_setting_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:ems="8"
+        android:hint="Test"
+        android:inputType="text"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:theme="@style/MyEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/device_setting_name_name"
+        app:layout_constraintStart_toEndOf="@+id/device_setting_name_name"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_name_name" />
+
+    <TextView
+        android:id="@+id/device_setting_location_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Device Location: "
+        app:layout_constraintStart_toStartOf="@+id/device_setting_name_name"
+        app:layout_constraintTop_toBottomOf="@+id/device_setting_name_name" />
+
+    <TextView
+        android:id="@+id/device_setting_location_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Somewhere"
+        app:layout_constraintStart_toStartOf="@+id/device_setting_name_value"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_location_name" />
+
+    <ImageView
+        android:id="@+id/device_setting_location_map"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/device_setting_location_value"
+        app:layout_constraintStart_toEndOf="@+id/device_setting_location_value"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_location_value"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/device_setting_max_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Warning Level: "
+        app:layout_constraintStart_toStartOf="@+id/device_setting_location_name"
+        app:layout_constraintTop_toBottomOf="@+id/device_setting_location_name" />
+
+    <TextView
+        android:id="@+id/device_setting_max_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="86 °C"
+        app:layout_constraintStart_toStartOf="@+id/device_setting_location_value"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_max_name" />
+
+    <TextView
+        android:id="@+id/device_setting_lowerlimit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Lower Limit: "
+        app:layout_constraintStart_toStartOf="@+id/device_setting_max_name"
+        app:layout_constraintTop_toBottomOf="@+id/device_setting_max_name" />
+
+    <EditText
+        android:id="@+id/device_setting_lowerlimit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:inputType="numberDecimal"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:theme="@style/MyEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/device_setting_lowerlimit_name"
+        app:layout_constraintStart_toStartOf="@+id/device_setting_max_value"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_lowerlimit_name" />
+
+
+    <TextView
+        android:id="@+id/device_setting_upperlimit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Upper Limit: "
+        app:layout_constraintStart_toStartOf="@+id/device_setting_lowerlimit_name"
+        app:layout_constraintTop_toBottomOf="@+id/device_setting_lowerlimit_name" />
+
+    <EditText
+        android:id="@+id/device_setting_upperlimit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:inputType="numberDecimal"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:theme="@style/MyEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/device_setting_upperlimit_name"
+        app:layout_constraintStart_toStartOf="@+id/device_setting_lowerlimit_value"
+        app:layout_constraintTop_toTopOf="@+id/device_setting_upperlimit_name" />
+
+
+    <Button
+        android:id="@+id/device_setting_name_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClick"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

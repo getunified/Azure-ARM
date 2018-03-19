@@ -1,0 +1,85 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+
+  
+
+  // IoT Hub parameters
+  "parameters": {
+    "resourceLocation": {
+      "value": "East US"
+    },
+
+    "hubName": { "value": "{Your IoT Hub's name}" }, // Must be globally unique
+
+    "userDisplayName": {
+      "value": "{Your name}", 
+      "metadata": {
+        "description": "Your name for connecting Stream Analytics to PowerBI."
+      }
+    },
+    "userLoginName": {
+      "value": "{your login email for PowerBI e.g. user@domain.com}",
+      "metadata": {
+        "description": "Your loginname/alias for connecting Stream Analytics to PowerBI."
+      }
+    },
+
+
+    // Stream Analytics
+    "streamAnalytics_ConnectionName": {
+      "value": "gu-streamanalytics"
+    },
+
+    "serviceBusQueue_ConnectionName1": {
+      "value": "androidBusQ"
+    },
+    "serviceBusQueue_ConnectionName2": {
+      "value": "serviceBusQ"
+    },
+
+
+
+    // Blob parameters
+    "azureblob_1_Connection_Name": {
+      "value": "blobStorage" 
+    },
+    "azureblob_1_Connection_DisplayName": {
+      "value": "blobStorage" 
+    },
+    "azureblob_1_accountName": {
+      "value": "{Blob's storage account name from step 4}", 
+      "metadata": {
+        "description": "Name of the storage account the connector should use."
+      }
+    },
+    "azureblob_1_accessKey": {
+      "value": "{Key1 from Azure Portal}", // Please refer to the documentation.
+      "metadata": {
+        "description": "Specify a valid primary/secondary storage account access key."
+      }
+    },
+
+
+    // Service Bus Queue parameters
+    "serviceBusQueueName1_1": {
+      "value": "androiddata"
+    },
+
+    "serviceBusQueueName1_2": {
+      "value": "sensordata"
+    },
+
+    "serviceBusNamespaceName1": {
+      "value": "gu-androidsensors"
+    },
+
+    "serviceBusQueueName2": {
+      "value": "notificationdata"
+    },
+
+    "serviceBusNamespaceName2": {
+      "value": "gu-notifications"
+    }
+  }
+}

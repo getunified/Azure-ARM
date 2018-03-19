@@ -1,0 +1,5 @@
+[seconds]0[topic]/gom/gid/b8:27:eb:00:69:10/sensors/id/1[message]{"id":1,"cmd":7,"data":{"cts":1516670234000,"rssi":-71,"cvu":"25.5&deg;C","cv":"25.5","ofs":"0.00","ucl":null,"lcl":null,"exm":"0","rtm":"0","ack":"0","alm":"0"}}
+[seconds]0[topic]/gom/gid/b8:27:eb:00:69:10/sensors/id/2[message]{"id":2,"cmd":7,"data":{"cts":1516670235000,"rssi":-72,"cvu":"0.1 A","cv":"0.1","ofs":"0.00","ucl":null,"lcl":null,"exm":"0","rtm":"0","ack":"0","alm":"0"}}
+[seconds]0[topic]/gom/gid/b8:27:eb:00:69:10/sensors/id/3[message]{"id":3,"cmd":7,"data":{"cts":1516670236000,"rssi":-71,"cvu":"0.0 A","cv":"0.0","ofs":"0.00","ucl":null,"lcl":null,"exm":"0","rtm":"0","ack":"0","alm":"0"}}
+[seconds]0[topic]/gom/gid/b8:27:eb:00:69:10/sensors/id/4[message]{"id":4,"cmd":7,"data":{"cts":1516670237000,"rssi":-71,"cvu":"24.3&deg;C","cv":"24.3","ofs":"0.00","ucl":null,"lcl":null,"exm":"0","rtm":"0","ack":"0","alm":"0"}}
+[seconds]0[topic]/gom/gid/b8:27:eb:00:69:10/sensors/id/1[message]{"id":1,"cmd":7,"data":{"cts":1516670298000,"rssi":-71,"cvu":"25.5&deg;C","cv":"25.5","ofs":"0.00","ucl":null,"lcl":null,"exm":"0","rtm":"0","ack":"0","alm":"0"}}

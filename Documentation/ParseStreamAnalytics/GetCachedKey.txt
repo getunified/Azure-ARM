@@ -1,0 +1,43 @@
+#r "Newtonsoft.Json"
+#r "System.Runtime.Caching.dll"
+ 
+using System;
+using System.Net;
+using Newtonsoft.Json;
+using System.Runtime.Caching;
+ 
+public static async Task<string> Run(HttpRequestMessage req, TraceWriter log)
+{
+    string input = await req.Content.ReadAsStringAsync();
+    log.Info(input);
+    string temp = ExtractJSON(input);
+    log.Info(temp);
+    string cache = GetCacheValue(temp, log);
+    log.Info(cache);
+    return cache;
+}
+
+  public static string GetCacheValue(string msg, TraceWriter log)
+{
+    var cache = MemoryCache.Default;
+
+    if (cache.Contains(msg))
+    {
+        string value = cache.Get(msg).ToString();
+        log.Info(value);
+        return value;
+    }
+    else
+    {          
+        return "key not found";
+    }
+
+
+ }
+ 
+ public static string ExtractJSON(string content)
+{
+    string temp = content.Replace("{\"payload\":\"", string.Empty);
+    temp = temp.Replace("\\\"", "\"");
+    return temp.Remove(temp.Length - 2, 2);
+}

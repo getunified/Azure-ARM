@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Application  1</string>
+    <string name="home_title">My Devices</string>
+    <string name="device_detail_title">Device Detail</string>
+    <string name="device_setting_title">Device Setting</string>
+    <string name="switchtext">Switch: </string>
+    <string name="username">User Name: </string>
+    <string name="password">Password: </string>
+    <string name="login">Login</string>
+    <string name="clicktoregister">Don\'t have an account\? Sign up</string>
+    <string name="forgetpassword">Forgot Password</string>
+    <string name="title_activity_checjout">ChecjoutActivity</string>
+    <string name="payresult_success">Payment successful</string>
+    <string name="payresult_fail">Payment failed</string>
+</resources>

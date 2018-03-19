@@ -1,0 +1,58 @@
+SELECT
+    *
+INTO
+    [blobStorageName]
+FROM
+    [iotHubName]
+
+
+SELECT 
+    CASE 
+    WHEN data.temp1cv IS NOT NULL
+    THEN TRY_CAST(data.temp1cv AS float) 
+    ELSE -273
+    END AS temp1cv,
+    CASE 
+    WHEN data.temp4cv IS NOT NULL
+    THEN TRY_CAST(data.temp4cv AS float) 
+    ELSE -273
+    END AS temp4cv,
+    CASE 
+    WHEN data.amps2cv IS NOT NULL
+    THEN TRY_CAST(data.amps2cv AS float) 
+    ELSE -273
+    END AS amps2cv
+INTO
+    [serviceBusQueue_ConnectionName2]
+FROM 
+    [iotHubName]
+
+SELECT
+    mac,
+    id,
+    EventProcessedUtcTime,
+    TRY_CAST(data.rssi AS bigint) AS rssi,
+    TRY_CAST(longitude AS float) AS long,
+    TRY_CAST(latitude AS float) AS lat,
+    LAST(TRY_CAST(data.temp1cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.temp1cv IS NOT NULL) AS temp1cv,  
+    LAST(TRY_CAST(data.temp4cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.temp4cv IS NOT NULL) AS temp4cv, 
+    LAST(TRY_CAST(data.amps2cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.amps2cv IS NOT NULL) AS amp2cv, 
+    LAST(TRY_CAST(data.amps3cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.amps3cv IS NOT NULL) as amp3cv
+INTO
+    [powerBIName]
+FROM
+    [iotHubName]
+
+SELECT
+    mac,
+    id,
+    EventProcessedUtcTime,
+    TRY_CAST(data.rssi AS bigint) AS rssi,
+    LAST(TRY_CAST(data.temp1cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.temp1cv IS NOT NULL) AS temp1cv,  
+    LAST(TRY_CAST(data.temp4cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.temp4cv IS NOT NULL) AS temp4cv, 
+    LAST(TRY_CAST(data.amps2cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.amps2cv IS NOT NULL) AS amp2cv, 
+    LAST(TRY_CAST(data.amps3cv AS float)) OVER (LIMIT DURATION(hour, 1) WHEN data.amps3cv IS NOT NULL) as amp3cv
+INTO
+    [serviceBusQueue_ConnectionName1]
+FROM
+    [iotHubName]

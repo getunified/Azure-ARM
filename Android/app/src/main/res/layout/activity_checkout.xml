@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nz.co.getunified.getunified.Online.CheckoutActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/checkout_info"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#a8a8A8" />
+
+        <TextView
+            android:id="@+id/checkout_sum"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:text="$Null"
+            android:textSize="@dimen/font_shopping_sum"
+            android:gravity="center"
+            android:textColor="@color/text_yellow" />
+
+        <TextView
+            android:id="@+id/checkout_count"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/checkout_sum"
+            android:text="Null items"
+            android:textSize="@dimen/font_shopping_count"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/checkout_pay"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:text="Pay"
+            android:textSize="@dimen/font_shopping_checkout"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/checkout_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkout_info"
+        android:layout_alignParentTop="true" />
+
+    <ProgressBar
+        android:id="@+id/checkout_progess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@anim/loading" />
+
+
+</RelativeLayout>

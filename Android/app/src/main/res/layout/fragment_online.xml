@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onlinefragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nz.co.getunified.getunified.Online.OnlineFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/shopping_info"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#a8a8A8" />
+
+            <TextView
+                android:id="@+id/shopping_sum"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:text="$0.00"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/font_shopping_sum" />
+
+            <TextView
+                android:id="@+id/shopping_count"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/shopping_sum"
+                android:gravity="center"
+                android:text="0 item(s)"
+                android:textSize="@dimen/font_shopping_count" />
+
+            <Button
+                android:id="@+id/shopping_checkout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:text="Checkout"
+                android:textSize="@dimen/font_shopping_checkout"
+                android:gravity="center" />
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/online_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/shopping_info"
+            android:layout_alignParentTop="true"
+            android:columnWidth="180dp"
+            android:numColumns="2"
+            android:stretchMode="spacingWidthUniform" />
+    </RelativeLayout>
+</FrameLayout>

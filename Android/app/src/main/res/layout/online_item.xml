@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/onlineitem_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/common_google_signin_btn_icon_light" />
+
+    <TextView
+        android:id="@+id/onlineitem_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/onlineitem_image"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_detail"
+        android:text="Test Item" />
+
+    <TextView
+        android:id="@+id/onlineitem_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/onlineitem_name"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_detail"
+        android:text="$0.00" />
+
+    <EditText
+        android:id="@+id/onlineitem_num"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/onlineitem_price"
+        android:layout_centerHorizontal="true"
+        android:text="0"
+        android:ems="2"
+        android:inputType="number"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:theme="@style/MyEditText" />
+
+    <ImageButton
+        android:id="@+id/onlineitem_num_reduce"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@id/onlineitem_num"
+        android:layout_toLeftOf="@id/onlineitem_num" />
+
+    <ImageButton
+        android:id="@+id/onlineitem_num_plus"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@id/onlineitem_num"
+        android:layout_toRightOf="@id/onlineitem_num" />
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/onlineitem_add"-->
+    <!--android:layout_width="60dp"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_below="@id/onlineitem_num"-->
+    <!--android:layout_marginRight="8dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:background="@color/background"-->
+    <!--android:src="@drawable/cart"-->
+    <!--android:textSize="@dimen/font_detail" />-->
+
+</RelativeLayout>

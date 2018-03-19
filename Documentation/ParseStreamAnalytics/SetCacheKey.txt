@@ -1,0 +1,98 @@
+#r "Newtonsoft.Json"
+#r "System.Runtime.Caching.dll"
+#r "System.Configuration"
+#r "System.Data"
+ 
+using System;
+using System.Net;
+using Newtonsoft.Json;
+using System.Runtime.Caching;
+using Dapper;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web;
+using System.Threading.Tasks;
+
+public static async Task<string> Run(HttpRequestMessage req, TraceWriter log)
+{
+    // Start of SQL Database code
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    string temp = "";
+    var successful = true;
+    try
+    {
+        var str = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+        log.Info("Connection Established");
+        using (SqlConnection conn = new SqlConnection(str))
+        {
+            conn.Open();
+            float[] upLimits = new float[4];
+            float[] loLimits = new float[4];
+            for (int i = 0; i < 4; i++){
+                var text = "SELECT [UPPERLIMIT], [LOWERLIMIT] FROM [dbo].[SensorTable] WHERE SENSORTYPE = " + (i + 1) + "";
+                SqlCommand command = new SqlCommand(text, conn);
+                using (var reader = command.ExecuteReader()){
+                    if(reader.Read())
+                    {
+                        log.Info(reader["UPPERLIMIT"].ToString());
+                        log.Info(reader["LOWERLIMIT"].ToString());
+                        if (reader["UPPERLIMIT"].ToString() == "") {
+                            upLimits[i] = 1000;
+                        } 
+                        else {
+                            upLimits[i] = Convert.ToSingle(reader["UPPERLIMIT"]);
+                        }
+                        if (reader["LOWERLIMIT"].ToString() == "") {
+                            loLimits[i] = -273;
+                        }
+                        else {
+                            loLimits[i] = Convert.ToSingle(reader["LOWERLIMIT"]);
+                        }
+                    }
+                }
+            }
+
+
+
+            temp = "{\"temp1ut\": " + upLimits[0] + ",\"amps2ut\": " + upLimits[1] + ",\"temp4ut\": " + upLimits[3] + ",\"temp1lt\": " + loLimits[0] + ",\"amps2lt\": " + loLimits[1] + ",\"temp4lt\": " + loLimits[3] + "}";
+            log.Info("Log added to database successfully!");
+        }
+    }
+    catch (Exception ex)
+    {
+        successful=false;
+        log.Info(ex.ToString());
+    }
+
+    if(!successful){
+        log.Info("Unable to process your request!");
+    }
+    else{
+        log.Info("Data saved successfully!");
+    }
+    // End of SQL Database code
+
+    string cache = SaveCacheValue(temp, log);
+    log.Info(cache);
+    if (cache == string.Empty || cache == "")
+    {
+        return string.Empty;
+    }
+    else
+    {
+        return cache;   
+    }
+}
+
+public static string SaveCacheValue(string token, TraceWriter log)
+{ 
+    string key = "payloadvalue";
+    ObjectCache cache = MemoryCache.Default;  
+    log.Verbose($"{cache}");
+    CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+    log.Verbose($"{cacheItemPolicy}");
+    cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(1.0);
+    cache.Add(key, token, cacheItemPolicy);
+    return token;
+}
+ 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/checkoutitem_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+    <TextView
+        android:id="@+id/checkoutitem_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Name of Device"
+        app:layout_constraintEnd_toEndOf="@+id/checkoutitem_icon"
+        app:layout_constraintStart_toStartOf="@+id/checkoutitem_icon"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutitem_icon" />
+
+    <RelativeLayout
+        android:id="@+id/checkout_selector"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/checkoutitem_name"
+        app:layout_constraintEnd_toStartOf="@+id/checkoutitem_sum"
+        app:layout_constraintStart_toEndOf="@+id/checkoutitem_icon"
+        app:layout_constraintTop_toTopOf="@+id/checkoutitem_icon">
+
+        <TextView
+            android:id="@+id/checkoutitem_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/checkoutitem_count"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/checkoutitem_price"
+            android:layout_centerHorizontal="true"
+            android:ems="2"
+            android:inputType="number"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:theme="@style/MyEditText" />
+
+        <ImageButton
+            android:id="@+id/checkoutitem_reduce"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/checkoutitem_count"
+            android:layout_toStartOf="@id/checkoutitem_count" />
+
+
+        <ImageButton
+            android:id="@+id/checkoutitem_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/checkoutitem_count"
+            android:layout_toEndOf="@id/checkoutitem_count" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/checkoutitem_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/checkout_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/checkout_selector" />
+
+</android.support.constraint.ConstraintLayout>
